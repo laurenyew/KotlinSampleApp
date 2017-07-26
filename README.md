@@ -3,4 +3,4 @@
 **Following Kotlin for Android Developers**
 
 **Chapters**
-# Start [ ]
+1-3. Start Kotlin Project [ ]
