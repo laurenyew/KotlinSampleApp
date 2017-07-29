@@ -4,8 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import org.jetbrains.anko.find
-import org.jetbrains.anko.toast
+import org.jetbrains.anko.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,6 +30,13 @@ class MainActivity : AppCompatActivity() {
 
         toast("Hello World!")
 
+        val APP_ID = "5c6984500a430a71931b8baf146d0c10"
+        val URL = "http://api.openweathermap.org/data/2.5/forecast/daily?mode=json&units=metric&cnt=7"
+        val COMPLETE_URL = "$URL&APPID=$APP_ID&q="
 
+        doAsync {
+            Request(COMPLETE_URL).run()
+            uiThread { longToast("Request performed") }
+        }
     }
 }
