@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import org.jetbrains.anko.find
+import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,13 +19,18 @@ class MainActivity : AppCompatActivity() {
             "Sun 6/29 - Sunny - 20/7"
     )
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         //Setup the list view
         setContentView(R.layout.activity_main)
-        val forecastList = findViewById<RecyclerView>(R.id.forecast_list)
+        val forecastList: RecyclerView = find(R.id.forecast_list)
         forecastList.layoutManager = LinearLayoutManager(this)
         forecastList.adapter = ForecastListAdapter(items)
+
+        toast("Hello World!")
+
+
     }
 }
