@@ -8,6 +8,7 @@ import laurenyew.weatherapp.model.ForecastList
 /**
  * Created by laurenyew on 7/28/17.
  * Recycler View adapter used to list the forecast across several days
+ * (Author is assuming weekForecast is non-null b/c it's not notated as an optional)
  */
 class ForecastListAdapter(val weekForecast: ForecastList) : RecyclerView.Adapter<ForecastListAdapter.ViewHolder>() {
 

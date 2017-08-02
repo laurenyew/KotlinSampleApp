@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
 
         //Setup the list view
         setContentView(R.layout.activity_main)
-        forecast_list
         val forecastList: RecyclerView = find(R.id.forecast_list)
         forecastList.layoutManager = LinearLayoutManager(this)
 
