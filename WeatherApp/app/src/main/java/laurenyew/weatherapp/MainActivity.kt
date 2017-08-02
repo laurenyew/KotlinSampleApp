@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_main.*
 import laurenyew.weatherapp.requests.RequestForecastCommand
 import org.jetbrains.anko.custom.async
 import org.jetbrains.anko.find
@@ -28,11 +29,12 @@ class MainActivity : AppCompatActivity() {
 
         //Setup the list view
         setContentView(R.layout.activity_main)
+        forecast_list
         val forecastList: RecyclerView = find(R.id.forecast_list)
         forecastList.layoutManager = LinearLayoutManager(this)
 
         toast("Hello World!")
-
+        forecast_list
         async {
             val result = RequestForecastCommand("78759").execute()
             uiThread {
