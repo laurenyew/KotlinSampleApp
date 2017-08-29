@@ -5,24 +5,15 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
+import laurenyew.weatherapp.model.Forecast
 import laurenyew.weatherapp.requests.RequestForecastCommand
+import laurenyew.weatherapp.ui.ForecastListAdapter
 import org.jetbrains.anko.custom.async
 import org.jetbrains.anko.find
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
 
 class MainActivity : AppCompatActivity() {
-//Deprecated
-//    private val items = listOf<String>(
-//            "Mon 6/23 - Sunny - 31/17",
-//            "Tues 6/24 - Foggy - 21/8",
-//            "Weds 6/25 - Cloudy - 22/17",
-//            "Thurs 6/26 - Rainy - 18/11",
-//            "Fri 6/27 - Foggy - 21/10",
-//            "Sat 6/28 - TRAPPED IN WEATHERSTATION - 23/18",
-//            "Sun 6/29 - Sunny - 20/7"
-//    )
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +28,13 @@ class MainActivity : AppCompatActivity() {
         async {
             val result = RequestForecastCommand("78759").execute()
             uiThread {
-                forecastList.adapter = ForecastListAdapter(result)
+                //Create adapter provide callback lambda item click listener
+                forecastList.adapter = ForecastListAdapter(result,
+                        object : ForecastListAdapter.OnItemClickListener {
+                            override fun invoke(forecast: Forecast) {
+                                toast(forecast.date)
+                            }
+                        })
             }
         }
     }
