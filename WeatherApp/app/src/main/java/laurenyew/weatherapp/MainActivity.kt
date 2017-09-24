@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_main.*
-import laurenyew.weatherapp.model.Forecast
 import laurenyew.weatherapp.requests.RequestForecastCommand
 import laurenyew.weatherapp.ui.ForecastListAdapter
 import org.jetbrains.anko.custom.async
@@ -24,17 +22,12 @@ class MainActivity : AppCompatActivity() {
         forecastList.layoutManager = LinearLayoutManager(this)
 
         toast("Hello World!")
-        forecast_list
         async {
             val result = RequestForecastCommand("78759").execute()
             uiThread {
                 //Create adapter provide callback lambda item click listener
                 forecastList.adapter = ForecastListAdapter(result,
-                        object : ForecastListAdapter.OnItemClickListener {
-                            override fun invoke(forecast: Forecast) {
-                                toast(forecast.date)
-                            }
-                        })
+                        { toast(it.date) })
             }
         }
     }
