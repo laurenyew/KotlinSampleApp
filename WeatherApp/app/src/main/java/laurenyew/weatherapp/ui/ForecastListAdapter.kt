@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.squareup.picasso.Picasso
 import laurenyew.weatherapp.R
 import laurenyew.weatherapp.model.Forecast
 import laurenyew.weatherapp.model.ForecastList
