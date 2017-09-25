@@ -18,7 +18,7 @@ import org.jetbrains.anko.find
  * Recycler View adapter used to list the forecast across several days
  * (Author is assuming weekForecast is non-null b/c it's not notated as an optional)
  */
-class ForecastListAdapter(val weekForecast: ForecastList, val itemClick: (Forecast) -> Unit)
+class ForecastListAdapter(private val weekForecast: ForecastList, private val itemClick: (Forecast) -> Unit)
     : RecyclerView.Adapter<ForecastListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,7 +34,7 @@ class ForecastListAdapter(val weekForecast: ForecastList, val itemClick: (Foreca
         return weekForecast.size
     }
 
-    class ViewHolder(val view: View, val itemClick: (Forecast) -> Unit) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(private val view: View, private val itemClick: (Forecast) -> Unit) : RecyclerView.ViewHolder(view) {
         private val iconView = view.find<ImageView>(R.id.icon)
         private val dateView = view.find<TextView>(R.id.date)
         private val descriptionView = view.find<TextView>(R.id.description)
