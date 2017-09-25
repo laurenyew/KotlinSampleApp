@@ -8,7 +8,7 @@ import java.net.URL
  * Created by laurenyew on 7/31/17.
  * Request for the given 5 day forecast
  */
-class ForecastRequest(val zipCode: String) {
+class ForecastRequest(private val zipCode: String) {
     companion object {
         private val APP_ID = "5c6984500a430a71931b8baf146d0c10"
         private val WEATHER_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?"

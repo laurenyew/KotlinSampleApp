@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
         val forecastList: RecyclerView = find(R.id.forecast_list)
         forecastList.layoutManager = LinearLayoutManager(this)
 
-        toast("Hello World!")
         async {
             val result = RequestForecastCommand("78759").execute()
             uiThread {
