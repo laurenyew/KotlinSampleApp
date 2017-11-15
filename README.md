@@ -15,7 +15,7 @@
 12. Making the forecast list clickable [x]
 13. Lambdas [x]
 14. Visibility Modifiers [x]
-15. Kotlin Android Extensions [ ]
+15. Kotlin Android Extensions [x]
 16. Application Singleton and Delegated Properties [ ]
 17. Creating an SQLiteOpenHelper [ ]
 18. COllections and functional operations [ ]
