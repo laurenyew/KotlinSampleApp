@@ -18,7 +18,7 @@
 15. Kotlin Android Extensions [x]
 16. Application Singleton and Delegated Properties [x]
 17. Creating an SQLiteOpenHelper [x]
-18. COllections and functional operations [ ]
+18. COllections and functional operations [x]
 19. Saving and requesting data from database [ ]
 20. Null safety in Kotlin [ ]
 21. Creating the business logic to data access [ ]
